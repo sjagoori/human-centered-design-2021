@@ -1,0 +1,36 @@
+ul:before {
+  content: attr(aria-label);
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  border: 1px solid #c1c1cc;
+  max-width: 300px;
+  padding: 10px 0px 0px 10px;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+/* ul li::before {
+  content: '⋮';
+  margin-right: 5px;
+} */
+
+ul li:hover,
+ul li:focus {
+  background-color: #c1c1cc;
+  cursor: move;
+  /* color: white; */
+  /* border: 2px solid blue; */
+}
+
+[state] {
+  background-color: black;
+  color: white;
+}
