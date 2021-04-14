@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.style_mask__9zmSN {
+  bottom: 200px !important;
+  align-items: flex-end !important;
+  z-index: -1 !important;
+}
