@@ -12,6 +12,8 @@ export default function Home() {
   let rap = useRef(null);
   let direction = useRef(null);
   let isPlaying;
+  let toastDuration = 300
+  let songs = ["George_Gershwin_playing_Rhapsody_in_Blue.ogg"]
 
   // Set the drag hook and define component movement based on gesture data
   const [{ x, y, scale }, api] = useSpring(() => ({ x: 0, y: 0, scale: 1 }))
@@ -19,64 +21,64 @@ export default function Home() {
     async ({ dragging, active, movement: [mx, my], tap, cancel }) => {
       if (mx > 50 || mx < -50) cancel()
       if (my > 50 || my < -50) cancel()
-      api.start({ x: active ? mx : 0, y: active ? my : 0, immediate: active, scale: active ? 1.2 : 1})
+      api.start({ x: active ? mx : 0, y: active ? my : 0, immediate: active, scale: active ? 1.2 : 1 })
 
-      if (my < -10 && (rap.current.audioEl.current.volume <= 0.8 && rap.current.audioEl.current.volume >= 0 && !dragging)){
-        rap.current.audioEl.current.volume = rap.current.audioEl.current.volume + 0.2
-        rap.current.audioEl.current.volume == 1 ? Toast.fail('Max volume', 500) : Toast.info('Volume up', 500)
+      if (my < -10 && (rap.current.audioEl.current.volume <= 1 && rap.current.audioEl.current.volume >= 0 && !dragging)) {
+        console.log(rap.current.audioEl.current.volume)
+
+        rap.current.audioEl.current.volume > 0.7 ? Toast.fail('Max volume', toastDuration) : Toast.info('Volume up', toastDuration)
+        if (rap.current.audioEl.current.volume != 1) rap.current.audioEl.current.volume = rap.current.audioEl.current.volume + 0.2
         Toast.hide()
       }
 
-      if (my > 10 && (rap.current.audioEl.current.volume <= 1 && rap.current.audioEl.current.volume > 0.2) && !dragging){
-        rap.current.audioEl.current.volume = rap.current.audioEl.current.volume - 0.2 
-        rap.current.audioEl.current.volume == 5.5 ? Toast.fail('Min volume', 500) : Toast.info('Volume down', 500)
+      if (my > 10 && (rap.current.audioEl.current.volume <= 1 && rap.current.audioEl.current.volume > 0.2) && !dragging) {
+        console.log(rap.current.audioEl.current.volume)
 
-        Toast.info('Volume down', 500)
+        rap.current.audioEl.current.volume <= 0.3 ? Toast.fail('Min volume', toastDuration) : Toast.info('Volume down', toastDuration)
+        rap.current.audioEl.current.volume = rap.current.audioEl.current.volume - 0.2
         Toast.hide()
       }
 
-      if (mx > 10 && !dragging){
-        Toast.info('Skip song', 500)
+      if (mx > 10 && !dragging) {
+        Toast.info('Skip song', toastDuration)
       }
 
-      if (mx < -10 && !dragging){
-        Toast.info('Previous song', 500)
+      if (mx < -10 && !dragging) {
+        Toast.info('Previous song', toastDuration)
       }
-
-      console.log(rap.current.audioEl.current.volume)
 
       if (tap && !isPlaying) {
         await rap.current.audioEl.current.play()
         isPlaying = true
-        Toast.info('Playing', 500)
+        Toast.info('Playing', toastDuration)
         Toast.hide()
       } else if (tap && isPlaying) {
         rap.current.audioEl.current.pause()
         isPlaying = false
-        Toast.info('Paused', 500)
+        Toast.info('Paused', toastDuration)
         Toast.hide()
       }
     },
     { lockDirection: true, filterTaps: true, threshold: 1 })
 
 
-    // console.log('direction', Toast.info(direction.current, 1000))
+  // console.log('direction', Toast.info(direction.current, 1000))
 
   return (
     <Centered>
       <ReactAudioPlayer
-        src="George_Gershwin_playing_Rhapsody_in_Blue.ogg"
+        src={songs[0]}
         // controls
         ref={rap}
         id='player'
       // onPlay={(e) => console.log(e)}
       />
-      <animated.div {...bind(Block)} 
-      style={{ x, y, scale, touchAction: 'none', width: '100px', height: '100px', backgroundColor: '#434190', borderRadius: '10px' }} 
-      onDragEnd={() => {
-        console.log('drop')
-        console.log(direction)
-      }}
+      <animated.div {...bind(Block)}
+        style={{ x, y, scale, touchAction: 'none', width: '100px', height: '100px', backgroundColor: '#434190', borderRadius: '10px' }}
+        onDragEnd={() => {
+          console.log('drop')
+          console.log(direction)
+        }}
       />
     </Centered>
   )
