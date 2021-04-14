@@ -74,7 +74,7 @@ export default function Home() {
       // onPlay={(e) => console.log(e)}
       />
       <animated.div {...bind(Block)}
-        style={{ x, y, scale, touchAction: 'none', width: '100px', height: '100px', backgroundColor: '#434190', borderRadius: '10px' }}
+        style={{ x, y, scale, touchAction: 'none', width: '100px', height: '100px', backgroundColor: '#0C3DAB', borderRadius: '10px' }}
         onDragEnd={() => {
           console.log('drop')
           console.log(direction)
@@ -85,6 +85,7 @@ export default function Home() {
 }
 
 const Centered = styled.div` 
+  background-color: #1a1a1a;
   display: flex;
   height: 100vh;
   align-items: center;
