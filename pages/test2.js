@@ -10,6 +10,7 @@ export default function Test2() {
   let songs = ["bensound-buddy.mp3", "bensound-dubstep.mp3", "bensound-happyrock.mp3"]
   const [state, setState] = useState(false)
   const [song, setSong] = useState(songs[1])
+  let toastDuration = 350
 
   useHotkeys('p', async () => {
     if (!state) {
@@ -39,6 +40,27 @@ export default function Test2() {
     setSong(songs[2])
   })
 
+  useHotkeys('i', () => {
+    if (rap.current.audioEl.current.volume <= 1 && rap.current.audioEl.current.volume > 0.2) {
+      console.log(rap.current.audioEl.current.volume)
+
+      rap.current.audioEl.current.volume <= 0.3 ? Toast.fail('Min volume', toastDuration) : Toast.info('Volume down', toastDuration)
+      rap.current.audioEl.current.volume = rap.current.audioEl.current.volume - 0.2
+      Toast.hide()
+    }
+  })
+
+  useHotkeys('o', () => {
+    if (rap.current.audioEl.current.volume <= 1 && rap.current.audioEl.current.volume >= 0) {
+      console.log(rap.current.audioEl.current.volume)
+      rap.current.audioEl.current.volume > 0.7 ? Toast.fail('Max volume', toastDuration) : Toast.info('Volume up', toastDuration)
+      if (rap.current.audioEl.current.volume != 1) rap.current.audioEl.current.volume = rap.current.audioEl.current.volume + 0.2
+      Toast.hide()
+    }
+  })
+  // hotkeys(38, function(){
+  // })
+
   return (
     <Centered>
       <p>{song}</p>
@@ -59,22 +81,3 @@ const Centered = styled.div`
   align-items: center;
   justify-content: center;
 `
-
-
-
-// const bind = useDrag(({ down, movement: [mx, my] }) => {
-//   set({ x: down ? mx : 0, y: down ? my : 0 },{ lockDirection: true })
-//   console.log(down)
-//   // console.log(mx, my)
-
-//   // if (my < -80) console.log('going up')
-//   // if (mx < -80 && my < -80) console.log('going up-left')
-//   // if (mx < -80 && my > 80) console.log('going up-right')
-
-//   // if (my > 80) console.log('going down')
-//   // if (my > 80 && mx < -80) console.log('going down-left')
-//   // if (my > 80 && mx > 80) console.log('going down-right')
-
-//   // if (mx > 80) console.log('going right')
-//   // if (mx < -80) console.log('going left')
-// })
