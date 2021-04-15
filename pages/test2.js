@@ -76,13 +76,12 @@ export default function Test2() {
         id='player'
       />
       <div>
-        <p><code>p</code> - play</p>
-        <p><code>space</code> - pause</p>
-        <p><code>]</code> - next song</p>
-        <p><code>[</code> - previous song</p>
-        <p><code>i</code> - volume down</p>
-        <p><code>o</code> - volume up</p>
-
+        <p><kbd>p</kbd> - play</p>
+        <p><kbd>space</kbd> - pause</p>
+        <p><kbd>]</kbd> - next song</p>
+        <p><kbd>[</kbd> - previous song</p>
+        <p><kbd>i</kbd> - volume down</p>
+        <p><kbd>o</kbd> - volume up</p>
       </div>
     </Centered>
   )
@@ -95,12 +94,18 @@ const Centered = styled.div`
   align-items: center;
   justify-content: center;
 
-  code {
-    background-color: #cccccc;
-    padding: 5px 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 5px 3px black;
+  kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
     }
 
     a{
