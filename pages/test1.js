@@ -17,12 +17,12 @@ export default function Home() {
   let songPos = 0;
 
   // Set the drag hook and define component movement based on gesture data
-  const [{ x, y, scale }, api] = useSpring(() => ({ x: 0, y: 0, scale: 1 }))
+  const [{ x, y, scale }, api] = useSpring(() => ({ x: 0, y: 0, scale: .8 }))
   const bind = useDrag(
     async ({ dragging, active, movement: [mx, my], tap, cancel }) => {
       if (mx > 50 || mx < -50) cancel()
       if (my > 50 || my < -50) cancel()
-      api.start({ x: active ? mx : 0, y: active ? my : 0, immediate: active, scale: active ? 1.2 : 1 })
+      api.start({ x: active ? mx : 0, y: active ? my : 0, immediate: active, scale: active ? 1.2 : .8 })
 
       if (my < -10 && (rap.current.audioEl.current.volume <= 1 && rap.current.audioEl.current.volume >= 0 && !dragging)) {
         console.log(rap.current.audioEl.current.volume)
@@ -86,7 +86,7 @@ export default function Home() {
       // onPlay={(e) => console.log(e)}
       />
       <animated.div {...bind(Block)}
-        style={{ x, y, scale, touchAction: 'none', width: '100px', height: '100px', backgroundColor: '#0C3DAB', borderRadius: '50%' }}
+        style={{ x, y, scale, touchAction: 'none', width: '150px', height: '150px', border: '.3px solid white', backgroundColor: '#0C3DAB', borderRadius: '50%', boxShadow:'inset 0 0 50px #fff,inset 20px 0 80px #f0f,inset -20px 0 80px #0ff,inset 20px 0 300px #f0f,inset -20px 0 300px #0ff,0 0 50px #fff,-10px 0 80px #f0f,10px 0 80px #0ff' }}
         onDragEnd={() => {
           console.log('drop')
           console.log(direction)
