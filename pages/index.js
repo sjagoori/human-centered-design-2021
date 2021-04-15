@@ -22,6 +22,14 @@ const Centered = styled.div`
   height: 100vh;
   align-items: center;
   justify-content: center;
+
+  a {
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
 `
 
 
