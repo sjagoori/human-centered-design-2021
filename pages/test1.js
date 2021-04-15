@@ -13,7 +13,8 @@ export default function Home() {
   let direction = useRef(null);
   let isPlaying;
   let toastDuration = 350
-  let songs = ["George_Gershwin_playing_Rhapsody_in_Blue.ogg"]
+  let songs = ["bensound-buddy.mp3", "bensound-dubstep.mp3", "bensound-dubstep.mp3"]
+  let songPos = 0;
 
   // Set the drag hook and define component movement based on gesture data
   const [{ x, y, scale }, api] = useSpring(() => ({ x: 0, y: 0, scale: 1 }))
@@ -39,12 +40,22 @@ export default function Home() {
         Toast.hide()
       }
 
+
+      console.dir(rap.current.audioEl.current)
+
       if (mx > 10 && !dragging) {
         Toast.info('Skip song', toastDuration)
+        songPos > -1 ? (rap.current.audioEl.current.src = songs[songPos], songPos++) : rap.current.audioEl.current.src = songs[0]
+        await rap.current.audioEl.current.play()
+        isPlaying = true
       }
 
       if (mx < -10 && !dragging) {
         Toast.info('Previous song', toastDuration)
+        rap.current.audioEl.current.src = songs[0]
+        songPos < songs.length ? (rap.current.audioEl.current.src = songs[songPos], !songPos <= 0 ? songPos-- : null) : rap.current.audioEl.current.src = songs[0]
+        await rap.current.audioEl.current.play()
+        isPlaying = true
       }
 
       if (tap && !isPlaying) {
