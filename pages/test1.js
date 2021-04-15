@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { useRef } from 'react'
 import styled from 'styled-components'
 import { useSpring, animated } from 'react-spring'
@@ -6,7 +5,7 @@ import { useDrag } from 'react-use-gesture'
 import Block from 'components/block/Block.js'
 import ReactAudioPlayer from 'react-audio-player';
 import Toast from 'light-toast';
-
+import Link from 'next/link'
 
 export default function Home() {
   let rap = useRef(null);
@@ -78,6 +77,14 @@ export default function Home() {
 
   return (
     <Centered>
+      <Description>
+        <Link href="/">⇦ Back</Link>
+        <p><code>tap</code> - play/pause</p>
+        <p><code>drag-up</code> - vol-up</p>
+        <p><code>drag-down</code> - vol-down</p>
+        <p><code>drag-left</code> - previous song</p>
+        <p><code>drag-right</code> - next song</p>
+      </Description>
       <ReactAudioPlayer
         src={songs[1]}
         // controls
@@ -104,7 +111,30 @@ const Centered = styled.div`
   justify-content: center;
 `
 
+const Description = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+  max-width: 300px;
 
+  >:nth-child(2){
+    margin-top: 50px;
+  }
+
+  code {
+    background-color: #cccccc;
+    padding: 5px 10px;
+    margin-right: 5px;
+    }
+
+    a{
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-bottom: 100px;
+      border: 1px solid black;
+    }
+`
 
 // const bind = useDrag(({ down, movement: [mx, my] }) => {
 //   set({ x: down ? mx : 0, y: down ? my : 0 },{ lockDirection: true })
