@@ -6,11 +6,14 @@ export default function Home() {
 
   return (
     <Centered>
-      <Link href='/test1'>
+      <Link href='#'>
         Prototype 1
       </Link>
-      <Link href='/test2'>
+      <Link href='#'>
         Prototype 2
+      </Link>
+      <Link href='/test3'>
+        Prototype 3
       </Link>
     </Centered>
   )
@@ -18,7 +21,7 @@ export default function Home() {
 
 const Centered = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   height: 100vh;
   align-items: center;
   justify-content: center;
@@ -29,6 +32,12 @@ const Centered = styled.div`
     color: white;
     border-radius: 5px;
     margin-bottom: 10px;
+
+    &:nth-child(-n+2){
+      background-color: transparent;
+      border: 1px solid grey;
+      color: grey;
+    }
   }
 `
 
