@@ -67,10 +67,10 @@ export default function Test2() {
 
   return (
     <Centered>
-      <p>▶ {song}</p>
+      <p>♫ {song} ♫</p>
       <ReactAudioPlayer
         src={songs[1]}
-
+        controls
         ref={rap}
         id='player'
       />
