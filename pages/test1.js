@@ -13,7 +13,7 @@ export default function Home() {
   let direction = useRef(null);
   let isPlaying;
   let toastDuration = 350
-  let songs = ["bensound-buddy.mp3", "bensound-dubstep.mp3", "bensound-dubstep.mp3"]
+  let songs = ["bensound-buddy.mp3", "bensound-dubstep.mp3", "bensound-happyrock.mp3"]
   let songPos = 0;
 
   // Set the drag hook and define component movement based on gesture data
