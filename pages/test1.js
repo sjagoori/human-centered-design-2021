@@ -12,7 +12,7 @@ export default function Home() {
   let rap = useRef(null);
   let direction = useRef(null);
   let isPlaying;
-  let toastDuration = 300
+  let toastDuration = 350
   let songs = ["George_Gershwin_playing_Rhapsody_in_Blue.ogg"]
 
   // Set the drag hook and define component movement based on gesture data
@@ -85,7 +85,7 @@ export default function Home() {
 }
 
 const Centered = styled.div` 
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   display: flex;
   height: 100vh;
   align-items: center;
