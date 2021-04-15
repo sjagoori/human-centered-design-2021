@@ -6,10 +6,10 @@ export default function Home() {
 
   return (
     <Centered>
-      <Link href='#'>
+      <Link href='/test1'>
         Prototype 1
       </Link>
-      <Link href='#'>
+      <Link href='/test2'>
         Prototype 2
       </Link>
       <Link href='/test3'>
@@ -35,8 +35,8 @@ const Centered = styled.div`
 
     &:nth-child(-n+2){
       background-color: transparent;
-      border: 1px solid grey;
-      color: grey;
+      border: 1px solid #c1c1c1;
+      color: #c1c1c1;
     }
   }
 `
