@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { useSpring, animated } from 'react-spring'
 import { useDrag } from 'react-use-gesture'
@@ -13,6 +13,8 @@ export default function Home() {
   let isPlaying;
   let toastDuration = 350
   let songs = ["bensound-buddy.mp3", "bensound-dubstep.mp3", "bensound-happyrock.mp3"]
+  const [song, setSong] = useState(songs[1])
+
   let songPos = 0;
 
   // Set the drag hook and define component movement based on gesture data
@@ -47,6 +49,8 @@ export default function Home() {
         rap.current.audioEl.current.src = songs[1]
         // songPos > -1 ? (rap.current.audioEl.current.src = songs[songPos], songPos++) : rap.current.audioEl.current.src = songs[0]
         await rap.current.audioEl.current.play()
+        setSong(songs[1])
+
         isPlaying = true
       }
 
@@ -55,6 +59,7 @@ export default function Home() {
         rap.current.audioEl.current.src = songs[0]
         // songPos < songs.length ? (rap.current.audioEl.current.src = songs[songPos], !songPos <= 0 ? songPos-- : null) : rap.current.audioEl.current.src = songs[0]
         await rap.current.audioEl.current.play()
+        setSong(songs[0])
         isPlaying = true
       }
 
@@ -92,8 +97,9 @@ export default function Home() {
         id='player'
       // onPlay={(e) => console.log(e)}
       />
+      <p>♫ {song} ♫</p>
       <animated.div {...bind(Block)}
-        style={{ x, y, scale, touchAction: 'none', width: '150px', height: '150px', border: '.3px solid white', backgroundColor: '#0C3DAB', borderRadius: '50%', boxShadow:'inset 0 0 50px #fff,inset 20px 0 80px #f0f,inset -20px 0 80px #0ff,inset 20px 0 300px #f0f,inset -20px 0 300px #0ff,0 0 50px #fff,-10px 0 80px #f0f,10px 0 80px #0ff' }}
+        style={{ x, y, scale, touchAction: 'none', width: '150px', height: '150px', border: '.3px solid white', backgroundColor: '#0C3DAB', borderRadius: '50%', boxShadow: 'inset 0 0 50px #fff,inset 20px 0 80px #f0f,inset -20px 0 80px #0ff,inset 20px 0 300px #f0f,inset -20px 0 300px #0ff,0 0 50px #fff,-10px 0 80px #f0f,10px 0 80px #0ff' }}
         onDragEnd={() => {
           console.log('drop')
           console.log(direction)
@@ -105,10 +111,14 @@ export default function Home() {
 
 const Centered = styled.div` 
   /* background-color: #1a1a1a; */
+  
   display: flex;
+  flex-direction: column;
   height: 100vh;
   align-items: center;
-  justify-content: center;
+  margin-top: 20em;
+  max-height: 30vh;
+  justify-content: space-between;
 `
 
 const Description = styled.div`
