@@ -10,11 +10,11 @@ import Link from 'next/link'
 export default function Home() {
   let rap = useRef(null);
   let direction = useRef(null);
-  let isPlaying;
+  let isPlaying = false;
   let toastDuration = 350
   let songs = ["bensound-buddy.mp3", "bensound-dubstep.mp3", "bensound-happyrock.mp3"]
   const [song, setSong] = useState(songs[1])
-
+  const [state, setState] = useState(null)
   let songPos = 0;
 
   // Set the drag hook and define component movement based on gesture data
@@ -52,6 +52,7 @@ export default function Home() {
         setSong(songs[1])
 
         isPlaying = true
+        setState(true)
       }
 
       if (mx < -10 && !dragging) {
@@ -61,22 +62,26 @@ export default function Home() {
         await rap.current.audioEl.current.play()
         setSong(songs[0])
         isPlaying = true
+        setState(true)
       }
 
-      if (tap && !isPlaying) {
+      if (tap && !state) {
         await rap.current.audioEl.current.play()
         isPlaying = true
+        setState(true)
         Toast.info('Playing', toastDuration)
         Toast.hide()
-      } else if (tap && isPlaying) {
+      } else if (tap && state) {
         rap.current.audioEl.current.pause()
         isPlaying = false
+        setState(false)
         Toast.info('Paused', toastDuration)
         Toast.hide()
       }
     },
     { lockDirection: true, filterTaps: true, threshold: 1 })
 
+    console.log(state)
 
   // console.log('direction', Toast.info(direction.current, 1000))
 
@@ -97,7 +102,7 @@ export default function Home() {
         id='player'
       // onPlay={(e) => console.log(e)}
       />
-      <p>♫ {song} ♫</p>
+      {state ? <p>♫ {song} ♫</p> : <p></p>}
       <animated.div {...bind(Block)}
         style={{ x, y, scale, touchAction: 'none', width: '150px', height: '150px', border: '.3px solid white', backgroundColor: '#0C3DAB', borderRadius: '50%', boxShadow: 'inset 0 0 50px #fff,inset 20px 0 80px #f0f,inset -20px 0 80px #0ff,inset 20px 0 300px #f0f,inset -20px 0 300px #0ff,0 0 50px #fff,-10px 0 80px #f0f,10px 0 80px #0ff' }}
         onDragEnd={() => {
