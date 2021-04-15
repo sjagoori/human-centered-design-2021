@@ -45,7 +45,8 @@ export default function Home() {
 
       if (mx > 10 && !dragging) {
         Toast.info('Skip song', toastDuration)
-        songPos > -1 ? (rap.current.audioEl.current.src = songs[songPos], songPos++) : rap.current.audioEl.current.src = songs[0]
+        rap.current.audioEl.current.src = songs[1]
+        // songPos > -1 ? (rap.current.audioEl.current.src = songs[songPos], songPos++) : rap.current.audioEl.current.src = songs[0]
         await rap.current.audioEl.current.play()
         isPlaying = true
       }
@@ -53,7 +54,7 @@ export default function Home() {
       if (mx < -10 && !dragging) {
         Toast.info('Previous song', toastDuration)
         rap.current.audioEl.current.src = songs[0]
-        songPos < songs.length ? (rap.current.audioEl.current.src = songs[songPos], !songPos <= 0 ? songPos-- : null) : rap.current.audioEl.current.src = songs[0]
+        // songPos < songs.length ? (rap.current.audioEl.current.src = songs[songPos], !songPos <= 0 ? songPos-- : null) : rap.current.audioEl.current.src = songs[0]
         await rap.current.audioEl.current.play()
         isPlaying = true
       }
@@ -78,14 +79,14 @@ export default function Home() {
   return (
     <Centered>
       <ReactAudioPlayer
-        src={songs[0]}
+        src={songs[1]}
         // controls
         ref={rap}
         id='player'
       // onPlay={(e) => console.log(e)}
       />
       <animated.div {...bind(Block)}
-        style={{ x, y, scale, touchAction: 'none', width: '100px', height: '100px', backgroundColor: '#0C3DAB', borderRadius: '10px' }}
+        style={{ x, y, scale, touchAction: 'none', width: '100px', height: '100px', backgroundColor: '#0C3DAB', borderRadius: '50%' }}
         onDragEnd={() => {
           console.log('drop')
           console.log(direction)
