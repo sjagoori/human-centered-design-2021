@@ -237,7 +237,7 @@ export default function Test3() {
           // onPlay={(e) => console.log(e)}
         />
 
-        {state ? <p>♫ {song} ♫</p> : <p></p>}
+        {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
         <animated.div
           {...bind(Block)}
           style={{
@@ -252,6 +252,7 @@ export default function Test3() {
             borderRadius: "50%",
             boxShadow:
               "inset 0 0 50px #fff,inset 20px 0 80px #f0f,inset -20px 0 80px #0ff,inset 20px 0 300px #f0f,inset -20px 0 300px #0ff,0 0 50px #fff,-10px 0 80px #f0f,10px 0 80px #0ff",
+            zIndex: 1,
           }}
           onDragEnd={() => {
             console.log("drop");
@@ -268,6 +269,13 @@ export default function Test3() {
     </Centered>
   );
 }
+
+const Title = styled.p`
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+`;
 
 const IconBox = styled.div`
   display: grid;
@@ -313,6 +321,10 @@ const Centered = styled.div`
   margin-top: 20em;
   max-height: 30vh;
   justify-content: space-between;
+
+  > :nth-child(1) {
+    z-index: 1;
+  }
 `;
 
 const Description = styled.div`
