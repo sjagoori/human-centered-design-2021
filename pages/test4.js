@@ -20,20 +20,65 @@ export default function Test4() {
   const wheelGestures = WheelGestures();
 
   useEffect(function mount() {
+    rap.current.audioEl.current.volume = 0.5;
+    // handle playstate lateron
+    setState(true);
     wheelGestures.observe(window.document.getElementById("player"));
 
     wheelGestures.on("wheel", (wheelEventState) => {
       if (wheelEventState.isEnding) {
         let axis = wheelEventState.axisMovement;
         console.log(axis);
-        if (axis[1] > 20) {
-          Toast.info("going up", toastDuration);
-        } else if (axis[1] < -20) {
-          Toast.info("going down", toastDuration);
+        if (
+          axis[1] > 20 &&
+          rap.current.audioEl.current.volume <= 1 &&
+          rap.current.audioEl.current.volume >= 0
+        ) {
+          rap.current.audioEl.current.volume > 0.9
+            ? Toast.fail(
+                `Max volume (${
+                  Math.round(rap.current.audioEl.current.volume) * 100 + "%"
+                })`,
+                toastDuration
+              )
+            : Toast.info(
+                `Volume (${
+                  Math.round(rap.current.audioEl.current.volume) * 100 + "%"
+                })`,
+                toastDuration
+              );
+          if (rap.current.audioEl.current.volume != 1)
+            rap.current.audioEl.current.volume =
+              rap.current.audioEl.current.volume + 0.2;
+          Toast.hide();
+        } else if (
+          axis[1] < -20 &&
+          rap.current.audioEl.current.volume <= 1 &&
+          rap.current.audioEl.current.volume > 0.2
+        ) {
+          rap.current.audioEl.current.volume <= 0.1
+            ? Toast.fail(
+                `Min volume (${
+                  rap.current.audioEl.current.volume.toFixed(2) * 100 + "%"
+                })`,
+                toastDuration
+              )
+            : Toast.info(
+                `Volume down (${
+                  rap.current.audioEl.current.volume.toFixed(2) * 100 + "%"
+                })`,
+                toastDuration
+              );
+          rap.current.audioEl.current.volume =
+            rap.current.audioEl.current.volume - 0.2;
         } else if (axis[0] > 20 && axis[1] < 20 && axis[1] > -20) {
-          Toast.info("going right", toastDuration);
+          Toast.info("Next song", toastDuration);
+          rap.current.audioEl.current.src = songs[2];
+          setSong(songs[2]);
         } else if (axis[0] < -20 && axis[1] < 20 && axis[1] > -20) {
-          Toast.info("going left", toastDuration);
+          Toast.info("Previous song", toastDuration);
+          rap.current.audioEl.current.src = songs[0];
+          setSong(songs[0]);
         }
       }
     });
@@ -41,6 +86,7 @@ export default function Test4() {
 
   return (
     <Centered>
+      {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
       <ReactAudioPlayer controls src={songs[1]} ref={rap} id="player" />
     </Centered>
   );
@@ -56,10 +102,9 @@ const Centered = styled.div`
   justify-content: space-between;
 `;
 
-const Description = styled.div`
+const Title = styled.p`
   position: absolute;
   top: 20px;
-  left: 20px;
-  z-index: 0;
-  max-width: 300px;
+  left: 50%;
+  transform: translateX(-50%);
 `;
