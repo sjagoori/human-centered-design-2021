@@ -22,13 +22,16 @@ export default function Test4() {
   useEffect(function mount() {
     rap.current.audioEl.current.volume = 0.5;
     // handle playstate lateron
-    setState(true);
-    wheelGestures.observe(window.document.getElementById("player"));
+    // console.log(window.document.body);
+    let element = window.document.body;
+    element.addEventListener("click", () => {
+      state ? setState(true) : setState(false);
+    });
+    wheelGestures.observe(element);
 
     wheelGestures.on("wheel", (wheelEventState) => {
       if (wheelEventState.isEnding) {
         let axis = wheelEventState.axisMovement;
-        console.log(axis);
         if (
           axis[1] > 20 &&
           rap.current.audioEl.current.volume <= 1 &&
@@ -84,22 +87,25 @@ export default function Test4() {
     });
   }, []);
 
+  console.log(state);
+
   return (
     <Centered>
       {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
-      <ReactAudioPlayer controls src={songs[1]} ref={rap} id="player" />
+      <ReactAudioPlayer src={songs[1]} ref={rap} id="player" />
     </Centered>
   );
 }
 
 const Centered = styled.div`
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   height: 100vh;
-  align-items: center;
+  width: 100vw;
+  /* align-items: center;
   margin-top: 20em;
   max-height: 30vh;
-  justify-content: space-between;
+  justify-content: space-between; */
 `;
 
 const Title = styled.p`
