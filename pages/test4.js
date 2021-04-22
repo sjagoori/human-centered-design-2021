@@ -11,6 +11,7 @@ import VolumeDown from "assets/svg/VolumeDown";
 import SkipSong from "assets/svg/SkipSong";
 import PrevSong from "assets/svg/PrevSong";
 import DragIcon from "assets/svg/DragIcon";
+import PlayPause from "assets/svg/PlayPause";
 import c from "../styles/Test4.module.css";
 
 export default function Test4() {
@@ -116,11 +117,13 @@ export default function Test4() {
         <ReactAudioPlayer src={songs[1]} ref={rap} />
         <div className={`${c.outerBox}`}>
           <span className={c.label}>
-            <DragIcon />
+            <PlayPause />
           </span>
           <div className={`${c.wheelIndicator}`}>
             <div className={c.fingers}>
-              <span className={c.finger} />
+              <span className={c.finger}>
+                <DragIcon />
+              </span>
               <span className={c.finger} />
             </div>
           </div>
