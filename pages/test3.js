@@ -194,40 +194,43 @@ export default function Test3() {
       <div>
         <Description>
           <Link href="/">⇦ Back</Link>
-          <p>
-            <code>tap</code> - play/pause
-          </p>
-          <p>
-            <code>drag-up</code> - vol-up
-          </p>
-          <p>
-            <code>drag-down</code> - vol-down
-          </p>
-          <p>
-            <code>drag-left</code> - previous song
-          </p>
-          <p>
-            <code>drag-right</code> - next song
-          </p>
-          <br />
-          <p>
-            <kbd>p</kbd> - play
-          </p>
-          <p>
-            <kbd>space</kbd> - pause
-          </p>
-          <p>
-            <kbd>]</kbd> - next song
-          </p>
-          <p>
-            <kbd>[</kbd> - previous song
-          </p>
-          <p>
-            <kbd>i</kbd> - volume down
-          </p>
-          <p>
-            <kbd>o</kbd> - volume up
-          </p>
+          <details>
+            <summary>Controls</summary>
+            <p>
+              <code>tap</code> - play/pause
+            </p>
+            <p>
+              <code>drag-up</code> - vol-up
+            </p>
+            <p>
+              <code>drag-down</code> - vol-down
+            </p>
+            <p>
+              <code>drag-left</code> - previous song
+            </p>
+            <p>
+              <code>drag-right</code> - next song
+            </p>
+            <br />
+            <p>
+              <kbd>p</kbd> - play
+            </p>
+            <p>
+              <kbd>space</kbd> - pause
+            </p>
+            <p>
+              <kbd>]</kbd> - next song
+            </p>
+            <p>
+              <kbd>[</kbd> - previous song
+            </p>
+            <p>
+              <kbd>i</kbd> - volume down
+            </p>
+            <p>
+              <kbd>o</kbd> - volume up
+            </p>
+          </details>
         </Description>
         <ReactAudioPlayer
           src={songs[1]}
@@ -334,8 +337,8 @@ const Description = styled.div`
   z-index: 0;
   max-width: 300px;
 
-  :nth-child(2) {
-    margin-top: 50px;
+  details {
+    margin-top: 30px;
   }
 
   code {
