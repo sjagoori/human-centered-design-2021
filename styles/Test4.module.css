@@ -1,12 +1,18 @@
 .outerBox {
+  width: 200px;
+  height: 200px;
+
   position: absolute;
   left: 50%;
-  bottom: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
   padding: 10px;
   border-radius: 20px;
   color: #fff;
   background: rgba(51, 51, 51, 0.2);
-  transform: translateX(-50%);
   pointer-events: none;
   opacity: 1;
   transition: 1s;
@@ -36,8 +42,7 @@
   font-size: 0.75em;
   white-space: nowrap;
   transform: translateY(-50%);
-  animation: label 4s 4;
-  font-size: 1.2rem;
+  animation: label 4s infinite;
 }
 .wheelIndicator {
   width: 140px;

@@ -10,6 +10,7 @@ import VolumeUp from "assets/svg/VolumeUp";
 import VolumeDown from "assets/svg/VolumeDown";
 import SkipSong from "assets/svg/SkipSong";
 import PrevSong from "assets/svg/PrevSong";
+import DragIcon from "assets/svg/DragIcon";
 import c from "../styles/Test4.module.css";
 
 export default function Test4() {
@@ -28,13 +29,15 @@ export default function Test4() {
     rap.current.audioEl.current.volume = 0.5;
     // handle playstate lateron
     // console.log(window.document.body);
-    let element = window.document.body;
-    element.addEventListener("click", () => {
-      state ? setState(true) : setState(false);
-    });
+    let element = window.document.getElementById("trackpad");
+    console.log(element);
+    // element.addEventListener("click", () => {
+    //   state ? setState(true) : setState(false);
+    // });
     wheelGestures.observe(element);
 
     wheelGestures.on("wheel", (wheelEventState) => {
+      console.log(wheelEventState);
       if (wheelEventState.isEnding) {
         let axis = wheelEventState.axisMovement;
         if (
@@ -92,15 +95,18 @@ export default function Test4() {
     });
   }, []);
 
-  console.log(state);
+  // console.log(state);
 
   return (
     <>
-      <Centered>
+      <Centered id="trackpad">
         {/* <Link href="/">⇦ Back</Link> */}
         {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
+        <ReactAudioPlayer src={songs[1]} ref={rap} />
         <div className={`${c.outerBox}`}>
-          {/* <span className={c.label}>Use your trackpad</span> */}
+          <span className={c.label}>
+            <DragIcon />
+          </span>
           <div className={`${c.wheelIndicator}`}>
             <div className={c.fingers}>
               <span className={c.finger} />
@@ -108,14 +114,14 @@ export default function Test4() {
             </div>
           </div>
         </div>
-        <ReactAudioPlayer src={songs[1]} ref={rap} id="player" />
+
+        <IconBox>
+          <VolumeUp />
+          <SkipSong />
+          <VolumeDown />
+          <PrevSong />
+        </IconBox>
       </Centered>
-      <IconBox>
-        <VolumeUp />
-        <SkipSong />
-        <VolumeDown />
-        <PrevSong />
-      </IconBox>
     </>
   );
 }
@@ -124,13 +130,13 @@ const Centered = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* flex-direction: column; */
   height: 100vh;
   width: 100vw;
   /* margin-top: 20em;
   max-height: 30vh; */
+  /* z-index: 99999; */
 
-  > div {
+  /* > div {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -140,7 +146,7 @@ const Centered = styled.div`
     transform: translate(-50%, -50%);
     color: black;
     font-size: 1.2rem;
-  }
+  } */
 `;
 
 const IconBox = styled.div`
@@ -148,15 +154,17 @@ const IconBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  align-items: start;
+  align-items: center;
   justify-items: center;
 
-  height: 70vh;
-  width: 70vh;
+  z-index: 0;
+
+  height: 65vh;
+  width: 65vh;
 
   position: absolute;
   left: 50%;
-  top: 60%;
+  top: 50%;
   transform: translateY(-50%);
   transform: translate(-50%, -50%);
 
