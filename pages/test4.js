@@ -168,8 +168,8 @@ const IconBox = styled.div`
 
   z-index: 0;
 
-  height: 65vh;
-  width: 65vh;
+  height: 60vh;
+  width: 60vh;
 
   position: absolute;
   left: 50%;
