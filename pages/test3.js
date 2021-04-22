@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
@@ -198,7 +198,7 @@ export default function Test3() {
       <div>
         <Description>
           <Link href="/">⇦ Back</Link>
-          <details>
+          <details open>
             <summary>Controls</summary>
             <p>
               <code>tap</code> - play/pause
