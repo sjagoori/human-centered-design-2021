@@ -100,7 +100,7 @@ export default function Test4() {
   return (
     <>
       <Centered id="trackpad">
-        {/* <Link href="/">⇦ Back</Link> */}
+        <Link href="/">⇦ Back</Link>
         {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
         <ReactAudioPlayer src={songs[1]} ref={rap} />
         <div className={`${c.outerBox}`}>
@@ -132,21 +132,16 @@ const Centered = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  /* margin-top: 20em;
-  max-height: 30vh; */
-  /* z-index: 99999; */
 
-  /* > div {
+  > a {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 200px;
-    width: 200px;
-    transform: translateY(-50%);
-    transform: translate(-50%, -50%);
-    color: black;
-    font-size: 1.2rem;
-  } */
+    left: 20px;
+    top: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    border: 1px solid black;
+  }
 `;
 
 const IconBox = styled.div`
