@@ -6,6 +6,11 @@ import ReactAudioPlayer from "react-audio-player";
 import Toast from "light-toast";
 import Link from "next/link";
 import { WheelGestures } from "wheel-gestures";
+import VolumeUp from "assets/svg/VolumeUp";
+import VolumeDown from "assets/svg/VolumeDown";
+import SkipSong from "assets/svg/SkipSong";
+import PrevSong from "assets/svg/PrevSong";
+import c from "../styles/Test4.module.css";
 
 export default function Test4() {
   let rap = useRef(null);
@@ -90,22 +95,89 @@ export default function Test4() {
   console.log(state);
 
   return (
-    <Centered>
-      {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
-      <ReactAudioPlayer src={songs[1]} ref={rap} id="player" />
-    </Centered>
+    <>
+      <Centered>
+        {/* <Link href="/">⇦ Back</Link> */}
+        {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
+        <div className={`${c.outerBox}`}>
+          {/* <span className={c.label}>Use your trackpad</span> */}
+          <div className={`${c.wheelIndicator}`}>
+            <div className={c.fingers}>
+              <span className={c.finger} />
+              <span className={c.finger} />
+            </div>
+          </div>
+        </div>
+        <ReactAudioPlayer src={songs[1]} ref={rap} id="player" />
+      </Centered>
+      <IconBox>
+        <VolumeUp />
+        <SkipSong />
+        <VolumeDown />
+        <PrevSong />
+      </IconBox>
+    </>
   );
 }
 
 const Centered = styled.div`
-  /* display: flex; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* flex-direction: column; */
   height: 100vh;
   width: 100vw;
-  /* align-items: center;
-  margin-top: 20em;
-  max-height: 30vh;
-  justify-content: space-between; */
+  /* margin-top: 20em;
+  max-height: 30vh; */
+
+  > div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 1.2rem;
+  }
+`;
+
+const IconBox = styled.div`
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: start;
+  justify-items: center;
+
+  height: 70vh;
+  width: 70vh;
+
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
+
+  > :nth-child(1) {
+    grid-column: 2;
+  }
+
+  > :nth-child(2) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  > :nth-child(3) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  > :nth-child(4) {
+    grid-column: 1;
+    grid-row: 2;
+  }
 `;
 
 const Title = styled.p`
