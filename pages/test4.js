@@ -28,18 +28,6 @@ export default function Test4() {
   useEffect(function mount() {
     rap.current.audioEl.current.volume = 0.5;
     let element = window.document.getElementById("trackpad");
-    element.addEventListener("click", async () => {
-      console.log("click", state);
-      if (!state) {
-        Toast.success("Paused", toastDuration);
-        setState(true);
-        Toast.hide();
-        return await rap.current.audioEl.current.play();
-      } else if (state) {
-        setState(false);
-        return rap.current.audioEl.current.pause();
-      }
-    });
 
     wheelGestures.observe(element);
     wheelGestures.on("wheel", (wheelEventState) => {
@@ -104,11 +92,25 @@ export default function Test4() {
     });
   }, []);
 
+  async function handleClick() {
+    console.log("click", state);
+    if (!state) {
+      Toast.success("Playing", toastDuration);
+      setState(true);
+      Toast.hide();
+      return await rap.current.audioEl.current.play();
+    } else if (state) {
+      Toast.fail("Paused", toastDuration);
+      setState(false);
+      return rap.current.audioEl.current.pause();
+    }
+  }
+
   console.log(state, song);
 
   return (
     <>
-      <Centered id="trackpad">
+      <Centered id="trackpad" onClick={handleClick}>
         <Link href="/">⇦ Back</Link>
         {state ? <Title>♫ {song} ♫</Title> : <Title></Title>}
         <ReactAudioPlayer src={songs[1]} ref={rap} />
