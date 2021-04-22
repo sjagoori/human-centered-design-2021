@@ -62,11 +62,11 @@
   }
   14% {
     transform: translateX(20%);
-    opacity: 0.9;
+    opacity: 0.45;
   }
   16% {
     transform: translateX(20%);
-    opacity: 0.8;
+    opacity: 0.4;
   }
   50%,
   100% {
@@ -85,9 +85,9 @@
   width: 18px;
   height: 18px;
   border-radius: 18px;
-  opacity: 0;
+  opacity: 0.2;
   background: #000;
-  animation: finger-move 4s 3;
+  animation: finger-move 4s infinite;
 }
 .finger:nth-of-type(2) {
   margin-left: 25px;
