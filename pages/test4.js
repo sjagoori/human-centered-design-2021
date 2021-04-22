@@ -157,6 +157,11 @@ const Centered = styled.div`
     border-radius: 5px;
     margin-bottom: 100px;
     border: 1px solid black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    background-color: grey;
+    color: white;
   }
 `;
 

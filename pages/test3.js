@@ -348,10 +348,12 @@ const Description = styled.div`
   }
 
   a {
-    padding: 5px 10px;
+    padding: 10px 15px;
     border-radius: 5px;
     margin-bottom: 100px;
     border: 1px solid black;
+    background-color: grey;
+    color: white;
   }
 
   kbd {
