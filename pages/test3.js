@@ -24,6 +24,10 @@ export default function Test3() {
   const [song, setSong] = useState(songs[1]);
   const [state, setState] = useState(null);
 
+  useEffect(function mount() {
+    rap.current.audioEl.current.volume = 0.5;
+  }, []);
+
   const [{ x, y, scale }, api] = useSpring(() => ({ x: 0, y: 0, scale: 0.8 }));
   const bind = useDrag(
     async ({ dragging, active, movement: [mx, my], tap, cancel }) => {
