@@ -22,20 +22,26 @@ export default function Test4() {
     "bensound-happyrock.mp3",
   ];
   const [song, setSong] = useState(songs[1]);
-  const [state, setState] = useState(null);
+  const [state, setState] = useState(false);
   const wheelGestures = WheelGestures();
 
   useEffect(function mount() {
     rap.current.audioEl.current.volume = 0.5;
-    // handle playstate lateron
-    // console.log(window.document.body);
     let element = window.document.getElementById("trackpad");
-    console.log(element);
-    // element.addEventListener("click", () => {
-    //   state ? setState(true) : setState(false);
-    // });
-    wheelGestures.observe(element);
+    element.addEventListener("click", async () => {
+      console.log("click", state);
+      if (!state) {
+        Toast.success("Paused", toastDuration);
+        setState(true);
+        Toast.hide();
+        return await rap.current.audioEl.current.play();
+      } else if (state) {
+        setState(false);
+        return rap.current.audioEl.current.pause();
+      }
+    });
 
+    wheelGestures.observe(element);
     wheelGestures.on("wheel", (wheelEventState) => {
       console.log(wheelEventState);
       if (wheelEventState.isEnding) {
@@ -58,7 +64,10 @@ export default function Test4() {
                 })`,
                 toastDuration
               );
-          if (rap.current.audioEl.current.volume != 1)
+          if (
+            rap.current.audioEl.current.volume != 1 &&
+            rap.current.audioEl.current.volume < 1
+          )
             rap.current.audioEl.current.volume =
               rap.current.audioEl.current.volume + 0.2;
           Toast.hide();
@@ -95,7 +104,7 @@ export default function Test4() {
     });
   }, []);
 
-  // console.log(state);
+  console.log(state, song);
 
   return (
     <>
