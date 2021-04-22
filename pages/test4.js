@@ -31,7 +31,7 @@ export default function Test4() {
     let element = window.document.getElementById("trackpad");
 
     wheelGestures.observe(element);
-    wheelGestures.on("wheel", (wheelEventState) => {
+    wheelGestures.on("wheel", async (wheelEventState) => {
       console.log(wheelEventState);
       if (wheelEventState.isEnding) {
         let axis = wheelEventState.axisMovement;
@@ -83,11 +83,15 @@ export default function Test4() {
         } else if (axis[0] > 20 && axis[1] < 20 && axis[1] > -20) {
           Toast.info("Next song", toastDuration);
           rap.current.audioEl.current.src = songs[2];
+          await rap.current.audioEl.current.play();
           setSong(songs[2]);
+          setState(true);
         } else if (axis[0] < -20 && axis[1] < 20 && axis[1] > -20) {
           Toast.info("Previous song", toastDuration);
           rap.current.audioEl.current.src = songs[0];
+          await rap.current.audioEl.current.play();
           setSong(songs[0]);
+          setState(true);
         }
       }
     });
