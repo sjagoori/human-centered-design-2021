@@ -33,20 +33,3 @@ const Centered = styled.div`
     }
   }
 `;
-
-// const bind = useDrag(({ down, movement: [mx, my] }) => {
-//   set({ x: down ? mx : 0, y: down ? my : 0 },{ lockDirection: true })
-//   console.log(down)
-//   // console.log(mx, my)
-
-//   // if (my < -80) console.log('going up')
-//   // if (mx < -80 && my < -80) console.log('going up-left')
-//   // if (mx < -80 && my > 80) console.log('going up-right')
-
-//   // if (my > 80) console.log('going down')
-//   // if (my > 80 && mx < -80) console.log('going down-left')
-//   // if (my > 80 && mx > 80) console.log('going down-right')
-
-//   // if (mx > 80) console.log('going right')
-//   // if (mx < -80) console.log('going left')
-// })
