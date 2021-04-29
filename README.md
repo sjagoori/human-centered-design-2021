@@ -3,7 +3,7 @@
 
 Voor het van Human Centered Design heb ik samen met Marijn een accessible muziekspeler ontworpen. Marijn heeft een motorische beperking waardoor meeste vormen van interactie af vallen. Hiervoor hebben we samen gezocht naar gepaste oplossingen. In de [wiki](https://github.com/sjagoori/musicle/wiki) van deze repo zijn de testverslagen met uitgebreide conclusie en rationale te vinden.
 
-![](https://github.com/sjagoori/musicle/raw/master/assets/images/prototype_3.png)
+![](https://github.com/sjagoori/musicle/raw/master/assets/images/prototype_5.png)
 
 
 ## User scenario 
