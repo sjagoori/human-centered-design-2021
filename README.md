@@ -1,12 +1,10 @@
 # 👋 🎵 Musicle 
-//Human Centered Design @cmda-minor-web 2021, interactie ontwerpen: Rapid prototypen en testen met echte mensen
+*Human Centered Design @cmda-minor-web 2021, interactie ontwerpen: Rapid prototypen en testen met echte mensen*
 
 Voor het van Human Centered Design heb ik samen met Marijn een accessible muziekspeler ontworpen. Marijn heeft een motorische beperking waardoor meeste vormen van interactie af vallen. Hiervoor hebben we samen gezocht naar gepaste oplossingen. In de [wiki](https://github.com/sjagoori/musicle/wiki) van deze repo zijn de testverslagen met uitgebreide conclusie en rationale te vinden.
 
 ![](https://github.com/sjagoori/musicle/raw/master/assets/images/prototype_3.png)
 
-## Het probleem 
-Marijn is een ontwikkelaar en werkt met een team samen om de metadata van vrijwel alle muziek streamingdiensten te verzamelen te verwerken. Hij is 
 
 ## User scenario 
 Marijn is een 44 jarige man en vader van twee kinderen. Hij woont samen met zijn vrouw en kinderen. Hij houdt zich niet veel bezig met kleuren maar heeft wel een voorkeur voor dark-mode.
@@ -17,7 +15,10 @@ Bij het gebruik van de laptop gebruikt hij het liefst zijn linker hand omdat de 
 
 Hij maakt duidelijk dat hij het liefst zo min mogelijk moeite wilt doen om een taak uit te voeren. Verder legt hij uit dat hij VI als editor gebruikt en dat hij de sneltoetsen zo fijn vindt dat hij deze ook instelt op andere applicaties. Voor het programmeren gebruikt hij Komodo editor en Chrome voor het browsen.
 
-Doordat hij een motorische beperking heeft, wilt hij zo min mogelijk klikken en slepen; deze interactie is lastig en vermoeiend voor hem.
+### Het probleem 
+Marijn heeft een motorische handicap waardoor de range-of-motion en het gebruik van multi-point interaction lastiger gaat. Hij kan bijvoorbeeld niet lange afstanden slepen. Bovendien beweegt hij heel wat waardoor de elementen op het scherm soms even kwijt zijn. Om zijn setup makkelijker te maken, gebruikt hij 3 schermen waar hij vensters open laat staan, dan weet hij precies wat waar staat.
+
+Om die redenen wilt marijn een oplossing waarbij de drag-en-drop interactie verbeterd is of vervangen met een alternatief dat even goed of betere werkt.
 
 ## Prototypen en testen
 Het proces van het maken en testen van de prototypen voor de Musicle begon met een drag-en-drop kanban bord. Uit deze eerste test kwamen de eerste inzichten. Na de inzichten gedocumenteert te hebben in een testverslag, ontstond musicle. Elke week is het concept van Musicle getest met één hoofd prototype en één onderzoeken prototype waarbij extra inzichten gevonden werden.
