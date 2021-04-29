@@ -1,197 +1,34 @@
-# Human Centered Design @cmda-minor-web 2021
-//Interactie ontwerpen: Rapid prototypen en testen met echte mensen
+# 👋 🎵 Musicle 
+//Human Centered Design @cmda-minor-web 2021, interactie ontwerpen: Rapid prototypen en testen met echte mensen
 
-Human Centered Design is een  methode voor het ontwerpen van gebruiksvriendelijke interactieve toepassingen. 
+Voor het van Human Centered Design heb ik samen met Marijn een accessible muziekspeler ontworpen. Marijn heeft een motorische beperking waardoor meeste vormen van interactie af vallen. Hiervoor hebben we samen gezocht naar gepaste oplossingen. In de [wiki](https://github.com/sjagoori/musicle/wiki) van deze repo zijn de testverslagen met uitgebreide conclusie en rationale te vinden.
 
-> What distinguishes Human-Centered Design from other problem-solving approaches is its obsessive focus on understanding the perspective of the person who experiences a problem, their needs, and whether the solution that has been designed for them is truly meeting their needs effectively or not. At its most effective, the very people who experience a problem the most are a constant part of the design process and when possible, become part of the design team itself. - [What Is Human-Centered Design?](https://medium.com/dc-design/what-is-human-centered-design-6711c09e2779)
+![](https://github.com/sjagoori/musicle/raw/master/assets/images/prototype_3.png)
 
-Door regelmatig te testen met je doelgroep kom je tot een beter en passend ontwerp. Een Frontend Designer en Developer heeft verstand van techniek, UX en design. Als je web technieken beheerst kun je je ideeën snel prototypen en testen in een browser. Je kan dan aanpassingen doorvoeren, uitproberen en weer testen ...
+## Het probleem 
+Marijn is een ontwikkelaar en werkt met een team samen om de metadata van vrijwel alle muziek streamingdiensten te verzamelen te verwerken. Hij is 
 
-In het vak Human Centered Design gaan we dingen ontwerpen voor echte mensen. Is er goede interactie? Kan je 'mens' je product op een prettige manier bedienen? Wat voor principes heb je gebruikt en getest? En is het leuk?
+## User scenario 
+Marijn is een 44 jarige man en vader van twee kinderen. Hij woont samen met zijn vrouw en kinderen. Hij houdt zich niet veel bezig met kleuren maar heeft wel een voorkeur voor dark-mode.
 
+In het professionele leven is hij actief als een technische chief architect. Hij is verantwoordelijk voor het leveren van correcte metadata voor muziek voor vrijwel alle muziekdiensten ter wereld. Zelf houdt hij van (hoe hij het noemt) takkenherrie.
 
-## Opdracht
+Bij het gebruik van de laptop gebruikt hij het liefst zijn linker hand omdat de sneltoetsen (en dus de modifier knoppen) eenmaal het dichtst aan elkaar aan de linker kant staan. Bovendien gebruikt voor het gemakt exclusief een touchpad, deze wordt ook met de linker hand bedient. Daarnaast gebruikt hij naast zijn laptopscherm, 3 extra schermen zodat hij niet constant op zoek moet naar vensters.
 
-### Ontwerpen met en voor echte mensen
+Hij maakt duidelijk dat hij het liefst zo min mogelijk moeite wilt doen om een taak uit te voeren. Verder legt hij uit dat hij VI als editor gebruikt en dat hij de sneltoetsen zo fijn vindt dat hij deze ook instelt op andere applicaties. Voor het programmeren gebruikt hij Komodo editor en Chrome voor het browsen.
 
-Voor dit vak krijg je een ontwerp-opdracht die je gaat maken voor 1 mens. Een echt mens. Je moet je ontwerp 3 keer testen. Door te testen en te itereren ga je je ontwerp verbeteren. Uiteindelijk heb je een ontwerp dat exclusief gemaakt is voor 1 persoon. Een _exclusive design_ ... Wie is deze persoon dan voor wie je dit gaat maken? Wat vindt deze persoon leuk of juist niet? En hoe bedient deze persoon een computer?
+Doordat hij een motorische beperking heeft, wilt hij zo min mogelijk klikken en slepen; deze interactie is lastig en vermoeiend voor hem.
 
-- [Opdracht - Ontwerpen met en voor echte mensen](course/Opdracht1.md)
+## Prototypen en testen
+Het proces van het maken en testen van de prototypen voor de Musicle begon met een drag-en-drop kanban bord. Uit deze eerste test kwamen de eerste inzichten. Na de inzichten gedocumenteert te hebben in een testverslag, ontstond musicle. Elke week is het concept van Musicle getest met één hoofd prototype en één onderzoeken prototype waarbij extra inzichten gevonden werden.
 
+### Testverslagen
+[1️⃣  Test 1 - de discovery](https://github.com/sjagoori/musicle/wiki/Testverslag-Week-1)    
+[2️⃣  Test 2 - introductie speler en toetsenbord interactie](https://github.com/sjagoori/musicle/wiki/Testverslag-Week-2)    
+[3️⃣  Test 3 - finetuned speler en swipe interactie](https://github.com/sjagoori/musicle/wiki/Testverslag-Week-3)
 
-### Leerdoelen
+### Einconclusies
+[🧐  Eindconclusies](https://github.com/sjagoori/musicle/wiki/Eindconclusies)    
+[🥇  De oplossing en rationale](https://github.com/sjagoori/musicle/wiki/De-oplossing-en-rationale)
 
-- _Leren hoe je (design) principles in een ontwerp kan toepassen._
-- _User needs begrijpen en gebruiken in je ontwerp._
-- _Leren hoe je moet testen en de resultaten gebruiken voor het verbeteren van je ontwerp._
 
-[Rubric](https://docs.google.com/spreadsheets/d/1no32c9YyAP78VMcqfA5i5at2OrxP9ce1d8dVGnii4Vs/)
-
-
-
-## Planning & programma
-
-| Planning  | Woensdag  |  Donderdag | Vrijdag  |
-|---|---|---|---|
-| [Week 1](#week-1)  | Intro, College inclusive design + Testen | Gastcollege + Testen | ~~Feedbackgesprekken~~ |
-| [Week 2](#week-2)  | College over testen + Testen  | Gastcollege + Testen | Feedbackgesprekken  |
-| [Week 3](#week-3)  | College + Testen  |  Gastcollege + Testen | Feedbackgesprekken  |
-| [Week 4](#week-4)  | Presentaties + Beoordelingsgesprekken | Beoordelingsgesprekken | Beoordelingsgesprekken + Weekly Nerd |
-
-
-
-### Week 1
-Deze week krijg je een college over _Exclusive Design Principles_. Deze Principles ga je toepassen in de opdracht. Op woensdag gaan we kennis maken met de echte mensen voor wie we gaan ontwerpen. Je kan dan al een kleine interactieve demo maken om te testen.
-
-
-#### Woensdag 7 april
-Woensdag is de eerste les van het vak Human Centered Design. Je krijgt een intro college over het vak en Vasilis gaat vertellen over _Exclusive Design_.
-
-Daarna prototypen en testen
-
-- test Team 
-- test Team 
-- test Team 
-
-#### Donderdag 8 april
-Donderdag begint de les met een gastcollege. 
-
-Daarna prototypen en testen
-
-- test Team 
-- test Team 
-- test Team 
-
-Deze les gaan we onderstaande artikelen bespreken:
-- [Exclusive Design van Vasilis van Gemert](https://exclusive-design.vasilis.nl/)
-
-
-
-#### Vrijdag 9 april
-Deze dag is voor Real-Time web...
-
-### Week 2
-Deze week heb je het tweede gesprek met je mens. Wat ga je testen? Wat wil je weten? 
-
-
-
-#### Woensdag 14 april
-Woensdag krijg je een college over testen.
-
-Daarna prototypen en testen
-
-- test Team 
-- test Team 
-- test Team 
-
-Deze les gaan we dit artikel bespreken:
-- [How User Scenarios Help To Improve Your UX van Sabina Idler](https://usabilla.com/blog/how-user-scenarios-help-to-improve-your-ux/)
-
-
-
-#### Donderdag 15 april
-Donderdag begint de les met een gastcollege. 
-
-Daarna prototypen en testen
-
-- test Team 
-- test Team 
-- test Team 
-
-
-Deze les gaan we dit artikel bespreken:
-- [Design for Both Needs and Wants: Applying Anderson’s User Experience Hierarchy of Needs](https://thevisualcommunicationguy.com/2018/11/08/design-for-both-needs-and-wants-applying-andersons-user-experience-hierarchy-of-needs/)
--  [10 Usability Lessons van Steve Krug](https://www.uxbooth.com/articles/10-usability-lessons-from-steve-krugs-dont-make-me-think/)
-
-
-#### Vrijdag 16 april
-Vrijdag zijn er coachgesprekken.
-
-
-
-
-
-
-### Week 3
-In week 3 gaan we verder met testen, itereren en reflecteren. Woensdag is de laatste sessie met je mens. 
-
-
-#### Woensdag 21 april
-Woensdag beginnen we met een college. Dan gaan we twee artikelen bespreken.
-
-Daarna prototypen en testen
-
-- test Team 
-- test Team 
-- test Team 
-
-
-Deze les gaan we dit artikel bespreken:
-- [Design for Fingers, Touch, and People van Steven Hoober](https://www.uxmatters.com/mt/archives/2017/03/design-for-fingers-touch-and-people-part-1.php)
-
-
-
-
-#### Donderdag 22 april
-Donderdag begint de les met een gastcollege.
-
-
-Daarna prototypen en testen
-
-- test Team 
-- test Team 
-- test Team 
-
-
-Daarna prototypen en testen
-
-- test Team 
-- test Team 
-- test Team 
-
-Deze les gaan we dit artikel bespreken:
-- [Designing for Interaction Modes van Andrew Grimes](https://alistapart.com/article/designing-for-interaction-modes/)
-
-
-
-#### Vrijdag 23 april
-Vrijdag zijn er coachgesprekken.
-
-
-
-
-### Week 4
-
-Deze week hebben we een gesprek waarin we je vorderingen en bevindingen bespreken. We verwachten dat je op Github je tests en iteraties hebt beschreven. Belangrijk is dat je reflecteert op de leerdoelen van het vak. 
-
-
-#### Woensdag 28 april
-Teampresentaties en beoordelingsgesprekken. 
-
-#### Donderdag 29 april
-Beoordelingsgesprekken
-
-#### Vrijdag 30 april
-Beoordelingsgesprekken + Weekly Nerd
-
-
-
-
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
-
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
