@@ -20,7 +20,7 @@ Marijn heeft een motorische handicap waardoor de range-of-motion en het gebruik 
 
 Om die redenen wilt marijn een oplossing waarbij de drag-en-drop interactie verbeterd is of vervangen met een alternatief dat even goed of betere werkt.
 
-## Prototypen en testen
+## Prototypes maken en testen
 Het proces van het maken en testen van de prototypen voor de Musicle begon met een drag-en-drop kanban bord. Uit deze eerste test kwamen de eerste inzichten. Na de inzichten gedocumenteert te hebben in een testverslag, ontstond musicle. Elke week is het concept van Musicle getest met één hoofd prototype en één onderzoeken prototype waarbij extra inzichten gevonden werden.
 
 ### Testverslagen
